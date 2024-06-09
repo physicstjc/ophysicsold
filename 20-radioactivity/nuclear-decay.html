@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Nuclear Decay</title>
+        <meta name="description" content="O-level Physics Radioactivity Nuclear Decay">
+        <meta name="viewport" content="width=700, initial-scale=1.1">
+        <link rel="stylesheet" href="../main.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css" integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ" crossorigin="anonymous">
+
+        <!-- The loading of KaTeX is deferred to speed up page rendering -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY" crossorigin="anonymous"></script>
+
+        <!-- To automatically render math in text elements, include the auto-render extension: -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                renderMathInElement(document.body, {
+                // customised options
+                // • auto-render specific keys, e.g.:
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false},
+                {left: '\\(', right: '\\)', display: false},
+                {left: '\\[', right: '\\]', display: true}
+            ],
+            // • rendering keys, e.g.:
+            throwOnError : false
+            });
+            });
+        </script>
+      
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.css" integrity="sha384-NFGicHNcq1l2DafLerXQeI3h3jJY3dCcDQF+29rtRBHW7P7ti+/XIRY7ALbJOaeh" crossorigin="anonymous">
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.js" integrity="sha384-HELAAZU8xvHgfT/8z4Mhmu+E2z3oBrMEuywaMh/CEd5uTZIDSct7TEaX+S43+dOi" crossorigin="anonymous"></script>
+    
+        <script src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+
+        <script> 
+        $(function(){
+          $("#header").load("../header.html"); 
+          $("#footer").load("../footer.html"); 
+        });
+        </script> 
+    </head>
+    
+    
+    <body>
+        <div id="header"></div>     
+        <h1>Unit 20 Radioactivity</h1>
+          <h2>20.2 Radioactive Decay</h2> (<a id="btn1" data-div="obj" onclick="reveal(this)">Objectives</a>)
+        <ol start="4" type="a" id="obj" style="display:none">
+                <li>show an understanding that nuclear decay is a random and spontaneous process whereby an unstable nucleus loses energy by emitting radiation</li>
+                <li>show an understanding of the nature of alpha (α), beta (β), and gamma (γ) radiation (including ionising effect and penetrating power) [β-particles are assumed to be β<sup>-</sup> particles only]</li>
+                <li>use equations involving nuclide notation to represent changes in the composition of the nucleus when radioactive emissions occur</li>
+                <li>show an understanding of background radiation</li>
+            <li>use the term half-life in simple calculations, which might involve information in tables or decay curves</li>
+            <li>discuss the applications (e.g. medical and industrial uses) and hazards of radioactivity based on:
+                <ol type="i">
+                    <li>half-life of radioactive materials,</li>
+                    <li>penetrating abilities and ionising effects of radioactive emissions</li>
+                </ol>
+            </li>
+
+        </ol>
+   
+        <p><strong>Radioactive decay</strong> is the <strong>spontaneous</strong> and <strong>random</strong> emission of radiation from a radioactive source when an unstable nucleus disintegrates to acquire a more stable state. . The three main types of radiation are alpha (α), beta (β), and gamma (γ) rays. They consist of α-particles, β-particles and high frequency electromagnetic photons respectively.</p>
+        
+            <p>- spontaneous means the process is unaffected by any external factors, such as temperature or pressure. And the process is unaffected by chemical reaction.</p>
+            <p>- random emission means it is impossible to predict which nucleus will decay next, but each has the same constant probability of decay per unit time. The probability of decay follows the laws of statistics.</p>
+
+        
+        <p>Radioactive decays can be expressed in the form of equations typically indicating the initial radioactive substance, the resulting decay products, and the specific type of emitted particles or radiation involved in the process. The <strong>conservation of nucleons</strong> in a radioactive decay equation is a fundamental principle in nuclear physics that states that the total number of nucleons (protons and neutrons) remains constant before and after a radioactive decay event. In other words, the sum of protons and neutrons in the parent nucleus is equal to the sum of protons and neutrons in the daughter nuclei and any emitted particles (such as alpha or beta particles). This conservation principle ensures that the total mass and charge within a nuclear reaction remains constant, preserving fundamental properties of the nucleus during radioactive decay processes, even though individual protons and neutrons may change their states or positions within the nucleus.</p>
+        
+        <h3>20.2.1 Alpha Decay</h3>
+        <p>An alpha decay is the process by which a nucleus emits an alpha (α) particle. An α-particle is a doubly positively charged helium nucleus consisting of 2 protons and 2 neutrons ($^4_2\text{He}^{2+}$). It is emitted with discrete energy. This emission results in a new atom with a mass number smaller by 4 and an atomic number smaller by 2 than the original atom.</p>
+        <p>The general equation for alpha decays can be represented by:$$^A_Z\text{X}\rightarrow{}^{A-4}_{Z-2}\text{Y}+^4_2\text{He}$$</p>
+        <p>For example,$$^{226}_{88}\text{Ra}\rightarrow{}^{222}_{86}\text{Rn}+^4_2\text{He}$$</p>
+        
+        <h3>20.2.2 Beta Decay</h3>
+        <p>A begta decay is the process by which a nucleus emits a beta (β) particle. A β-particle is a high speed electron originating from the nucleus through nuclear transformation in which a neutron changes into a proton and an electron.
+            $$^1_0\text{n}\rightarrow{}^1_1\text{p}+^0_{-1}\text{e}$$ 
+            
+            It occurs for nuclides with too high a neutron–proton ratio.</p>
+        <p>This emission does not change the nucleon number of the parent nuclide. So the new atom has the same mass number but an atomic number that is larger by 1. The general equation for beta decays can be represented by:$$^A_Z\text{X}\rightarrow{}^{A}_{Z+1}\text{Y}+^0_{-1}\text{e}$$</p>
+        <p>For example,$$^{214}_{82}\text{Pb}\rightarrow{}^{214}_{83}\text{Bi}+^0_{-1}\text{e}$$</p>
+        
+        <h3>20.2.3 Gamma Decay</h3>
+        <p>A gamma decay is the process by which a nucleus emits a gamma (γ) particle. A γ-particle is a high frequency electromagnetic photon of discrete energy spectrum. It is emitted when a radioactive nuclide in its excited state (denoted by *) returns to ground state. It often follows another decay process such as alpha or beta emission which has left the daughter nucleus in an excited state. This emission does not result in any change in nuclear structure
+.
+            $$^A_X\text{X}^*\rightarrow{}^A_Z\text{X}+\gamma$$ 
+            
+        For example, a beta decay can leave a nuclide in its nuclide state
+            $$^{24}_{11}\text{Na}\rightarrow{}^{24}_{12}\text{Mg*}+^0_{-1}\text{e}$$
+   which is followed by the gamma decay $$^{24}_{12}\text{Mg}^*\rightarrow{}^{24}_{12}\text{Mg}+\gamma$$</p>
+
+        <h3>20.2.4 Measuring Radioactivity</h3>
+       
+        <p>Radioactivity is measured experimentally using radiation detectors such as Geiger-Muller tubes. The process involves placing the radioactive source near the detector, allowing the radiation (alpha, beta or gamma particles) to ionize the molecules of the detector material. This process involves knocking electrons out of their atomic orbits, creating pairs of positively charged ions and free electrons. These free electrons are then attracted to the positively charged anode in the detector, creating an electrical current or pulse that can be measured. These electrical signals are then converted into counts or a measurable output.</p>
+        
+        <figure><a title="Geiger_Mueller_Counter_with_Circuit-de.svg: Dirk Hünniger
+derivative work: Nevdka, CC BY-SA 3.0 &lt;http://creativecommons.org/licenses/by-sa/3.0/&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Geiger_Mueller_Counter_with_Circuit-en.svg"><img width="512" alt="Geiger Mueller Counter with Circuit-en" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Geiger_Mueller_Counter_with_Circuit-en.svg/512px-Geiger_Mueller_Counter_with_Circuit-en.svg.png"></a>
+        <figcaption>Geiger-Muller counter.</figcaption>
+        </figure>
+        
+        <p><strong>Background radiation</strong>, due to naturally occurring radiation in the environment, is often subtracted from the measurements to isolate the radiation emitted by the radioactive source. The resulting data can be used to calculate the activity of the source or assess radiation exposure levels, crucial for various applications in fields like nuclear physics, healthcare, and radiation protection.</p>
+        
+        
+        <p><strong>Half-life</strong> is the time taken for half of the radioactive atoms in a sample to undergo radioactive decay. This time interval is characteristic of each radioactive isotope and remains constant for that isotope. During one half-life, half of the radioactive material decays, emitting radiation or particles, while the other half remains unchanged. The concept of half-life is crucial for understanding the rate of decay and predicting how much radioactive material will remain over time.</p>
+        
+        <p>The graph in the applet below shows how the amount of radioactive atoms changes in a sample with time. By moving the first slider, you can see how the decay curve reduces by half the value after each half-life. By moving the second slider, you can see how the curve changes with the value of half-life.</p>
+        
+        <iframe scrolling="no" title="Half-Life Action!!!" src="https://www.geogebra.org/material/iframe/id/rjfgfaue/width/688/height/501/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/true/sdz/true/ctl/false" width="688px" height="501px" style="border:0px;"> </iframe>
+        
+                  
+        <table width="100%"><tr><td>
+            <h4>Example</h4>
+            <p>A source contains a radioactive material. Without the radioactive source present, a detector records a background count rate of 20 counts per minute.</p>
+            <p>This source is placed in a fixed position near the detector. Initially a count rate of 520 per minute is recorded.</p>
+            <p>What count rate is recorded after a time of two half-lifes of the radioactive source?</p>
+            <ol type="A"><li>125 counts per minute</li>
+            <li>130 counts per minute</li>
+            <li>135 counts per minute</li>
+            <li>145 counts per minute</li></ol>
+            
+            <button id="btn1" data-div="ans1" onclick="reveal(this)">Reveal Answer</button>
+            <div id="ans1" style="display:none">
+            <p>A. Count Rate = Measurement - Background Count Rate = 520 - 20 = 500 counts per minute</p>
+            <p>After two half-lifes, count rate = $(\dfrac{1}{2})^2 \times 500 = 125$ counts per minute</p>
+            </div>
+            
+            </td></tr></table>
+        
+        <h3>20.2.5 Applications of Radioactivity</h3>
+        
+        <ol>
+            <li><strong>Diagnostic Imaging</strong>: Radioactive isotopes are widely used in medical imaging techniques such as positron emission tomography (PET) and single-photon emission computed tomography (SPECT) for diagnosing various conditions and diseases.</li>
+            <li><strong>Cancer Treatment</strong>: Radioactive sources, like cobalt-60 and various isotopes of iodine, are used in radiation therapy to treat cancer by targeting and destroying cancerous cells.</li>
+            <li><strong>Thickness Gauges</strong>: Radioactive sources are used in industrial settings for measuring the thickness of materials in manufacturing processes.</li>
+            <li><strong>Radiography</strong>: X-ray machines, which utilize radioactivity, are commonly used for inspecting the integrity of welds in pipelines and structures.</li>
+            <li><strong>Nuclear Power Generation</strong>: Radioactive materials, such as uranium-235 and plutonium-239, are used as fuel in nuclear power plants to produce electricity through controlled nuclear reactions.</li>
+            <li><strong>Food Preservation</strong>: Irradiation with gamma rays from radioactive materials is used to kill bacteria and parasites in food, thereby extending the shelf life of certain perishable items.</li>
+        </ol>
+        
+        <h3>20.2.6 Hazards of Radioactivity</h3>
+        
+        <p>Accidental releases of radioactive materials, such as those that occur in nuclear accidents, can have severe consequences. The Chernobyl and Fukushima disasters serve as examples, highlighting the importance of proper safety measures in handling radioactive substances. Improper disposal or leakage of radioactive waste can contaminate soil, water, and air, posing long-term environmental risks and potential harm to ecosystems. The severity of the hazards of radioactivity depends on three factors.</p>
+        <figure>
+           <a title="Oligopolism, CC0, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Radiation_Warning_Sign.jpg"><img width="320" alt="Radiation Warning Sign" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Radiation_Warning_Sign.jpg/512px-Radiation_Warning_Sign.jpg"></a>
+        <figcaption>Radiation warning sign</figcaption>
+        </figure>
+        
+        <ol><li><strong>Half-Life Considerations</strong>: The half-life of a radioactive material determines the rate at which it decays. Shorter half-lives mean more rapid decay and higher radioactivity in the short term. Long-lived isotopes can pose hazards over extended periods.</li>
+            <li><strong>Ionizing Effects</strong>: The ionizing effects of radioactive emissions can damage living tissues and cells. This can lead to health issues, including an increased risk of cancer, if exposure is not controlled.</li>
+            <li><strong>Penetrating Abilities</strong>: The penetrating abilities of radioactive emissions vary. Alpha particles are relatively heavy and can be stopped by a sheet of paper, while beta particles can penetrate skin but are stopped by thicker materials. Gamma rays, however, are highly penetrating and require dense materials (e.g., lead or concrete) to shield against them.</li></ol>
+        
+        <figure>
+            <table align="center">
+            <tr><td><strong>Type of radiation</strong></td><td><strong>Penetration in air</strong></td><td><strong>Ionization power</strong></td></tr>
+            <tr><td>Alpha</td><td>a few cm</td><td>high</td></tr>
+            <tr><td>Beta</td><td>up to 1 m</td><td>low</td></tr>
+            <tr><td>Gamma</td><td>up to 1 km</td><td>very low</td></tr>
+            </table> <figcaption>Ionization and penetrative abilities of radioactive particles</figcaption>
+        </figure>
+        
+          
+        <table width="100%"><tr><td>
+            <h4>Example</h4>
+            <p>A factory continuously produces plastic sheets. A radioactive isotope and a detector are used to
+check the thickness of the sheets.</p>
+            <p>What is the most suitable source to use?</p>
+            <ol type="A"><li>an alpha source with a half-life of a few minutes</li>
+            <li>an alpha source with a half-life of several years</li>
+            <li>a beta source with a half-life of a few minutes</li>
+            <li>a beta source with a half-life of several years</li></ol>
+            
+            <button id="btn1" data-div="ans2" onclick="reveal(this)">Reveal Answer</button>
+            <div id="ans2" style="display:none">
+            D. Beta particles have the penetrative ability to pass through plastic sheets. The activity of the source has to be almost constant over a long period of time so that the readings on the detector are constant if the thickness of the plastic sheets are constant.</div>
+            
+            </td></tr></table>
+        
+        <h3>20.2.7 Safety Measures</h3>       
+        <p>The following are some safety measures put in place to manage the risks involved when working with radioactivity.</p>
+        
+        <ol><li><strong>Shielding</strong>: Proper shielding using materials like lead, concrete, or water can effectively reduce exposure to radioactive emissions.</li>
+            <li><strong>Dosimetry</strong>: Monitoring and measuring radiation doses through dosimetry are crucial in occupational settings to ensure that workers are not exposed to harmful levels of radiation.</li>
+            <li><strong>Regulations and Standards</strong>: Strict regulations and adherence to safety standards are essential to minimize the risk of accidental exposure in various industries and medical practices.</li>
+            <li><strong>Waste Management</strong>: Proper management and disposal of radioactive waste are crucial to prevent environmental contamination and long-term hazards.</li></ol>
+        
+        <figure>
+        <a title="Jennifer Boyer from Fredrick, Maryland, USA, CC BY 2.0 &lt;https://creativecommons.org/licenses/by/2.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Dosimeter_measuring_radiation_in_the_Chernobyl_Exclusion_Zone.jpg"><img width="512" alt="Dosimeter measuring radiation in the Chernobyl Exclusion Zone" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Dosimeter_measuring_radiation_in_the_Chernobyl_Exclusion_Zone.jpg/512px-Dosimeter_measuring_radiation_in_the_Chernobyl_Exclusion_Zone.jpg"></a>
+        <figcaption>Dosimeter measuring radiation in the Chernobyl Exclusion Zone</figcaption>
+        </figure>
+        
+        <figure><img width="640" alt="Radioactive Waste Management" src="radioactive_waste_management.jpeg">        <figcaption>Ways of radioactive waste disposal (Source: <a href="https://www.grida.no/resources/5657">https://www.grida.no/resources/5657)</a></figcaption>
+        </figure>
+        <p>Balancing the benefits of radioactivity in medicine, industry, and energy production with the potential hazards requires careful regulation, oversight, and adherence to safety protocols. Advances in technology and safety measures continue to enhance the responsible use of radioactive materials in various applications.
+</p>
+
+            
+
+
+        
+        
+        <div id="footer"></div>        
+    </body>
+</html>
+

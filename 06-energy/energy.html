@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Energy Stores and Transfers</title>
+        <meta name="description" content="O-level Physics Energy">
+        <meta name="viewport" content="width=700, initial-scale=1.1">
+        <link rel="stylesheet" href="../main.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css" integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ" crossorigin="anonymous">
+
+        <!-- The loading of KaTeX is deferred to speed up page rendering -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY" crossorigin="anonymous"></script>
+
+        <!-- To automatically render math in text elements, include the auto-render extension: -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                renderMathInElement(document.body, {
+                // customised options
+                // • auto-render specific keys, e.g.:
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false},
+                {left: '\\(', right: '\\)', display: false},
+                {left: '\\[', right: '\\]', display: true}
+            ],
+            // • rendering keys, e.g.:
+            throwOnError : false
+            });
+            });
+        </script>
+      
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.css" integrity="sha384-NFGicHNcq1l2DafLerXQeI3h3jJY3dCcDQF+29rtRBHW7P7ti+/XIRY7ALbJOaeh" crossorigin="anonymous">
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.js" integrity="sha384-HELAAZU8xvHgfT/8z4Mhmu+E2z3oBrMEuywaMh/CEd5uTZIDSct7TEaX+S43+dOi" crossorigin="anonymous"></script>
+    
+        <script src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+
+        <script> 
+        $(function(){
+          $("#header").load("../header.html"); 
+          $("#footer").load("../footer.html"); 
+        });
+
+        </script> 
+        
+    </head>
+    
+    
+    <body>
+        <div id="header"></div>     
+        <h1>Unit 6 Energy</h1>
+        
+        <h2>6.1 Energy Stores and Transfers</h2> (<a id="btn1" data-div="obj" onclick="reveal(this)">Objectives</a>)
+        <ol start="1" type="a" id="obj" style="display:none">
+            <li>show an understanding that there are energy stores, e.g. kinetic, potential (gravitational, chemical, elastic), nuclear and internal, and that energy can be transferred from one store to another:</li>
+            <ol type="i"><li>Mechanically (by a force acting over a distance)</li>
+            <li>Electrically (by an electric current)</li>
+            <li>By heating (due to a temperature difference)</li>
+            <li>By propagation of waves (both electromagnetic and mechanical)</li></ol>
+        <li>recall and apply the relationships for kinetic energy ($E_k = \dfrac{1}{2} mv^2$) and gravitational potential energy near the Earth's surface ($E_p = m g h$) to new situations or to solve related problems</li>
+        <li>state the principle of the conservation of energy and apply the principle to new situations or to solve related problems</li>
+        </ol>
+   
+        <h3>6.1.1 Energy Stores</h3>
+        
+        <p>In our daily lives, we come across and require different kinds of energy for efficient living. Energy can be described as being in different ‘stores’. Each energy store can be associated with a system in which its elements possess the energy store or interact through the transfer of energy between energy stores.</p>
+        
+        <p>The SI unit of Energy is the joule (J). Energy is a scalar quantity.</p>
+        
+        <p>Examples of energy stores are:</p>
+        
+        
+        <table align="center">
+            <tr align="center"><th>Energy Store</th><th>Example of System</th><th>Description</th></tr>
+            <tr><td>Kinetic store</td><td>Object in motion</td><td><p>Energy that a body has due to its movement.</p>
+$$E_k = \dfrac{1}{2}mv^2$$
+<p>where 	$E_k$: energy in the kinetic store (in J)
+<br>$m$: mass of the body (in kg)
+<br>$v$: speed of the body (in m s<sup>–1</sup>) 
+</p>
+</td></tr>
+            <tr><td>Gravitational potential store</td><td>Object and the Earth</td><td><p>The energy that a body has due to its position above the reference level.</p>
+
+$$E_p = mgh$$
+<p>where 	$E_p$: energy in the gravitational potential store (in J)
+<br>$m$: mass of the body (in kg)
+<br>$g$: gravitational field strength (in N kg<sup>–1</sup>)
+<br>$h$: height above reference level (in m) 	
+</p>
+Note:
+Gravitational potential energy is assumed to be 0 J at a reference level that is usually the lowest point (e.g. ground). 
+</td></tr>
+            <tr><td>Chemical potential store</td><td>Food, battery</td><td><p>Energy that is stored in substances due to the positions of particles that make up the substance.</p>
+            <p>Fuels such as oil, wood, coal, electric cells, food and explosives have chemical potential energy.</p></td></tr>
+            
+            <tr><td>Elastic potential store</td><td>Mass suspended on a spring</td><td>Energy stored in a spring when it is held in a stretched or compressed state.</td></tr>
+            <tr><td>Internal store</td><td>Molecules in a body</td><td>The sum of the random microscopic kinetic and potential energies of all the atoms and molecules in a body.</td></tr>
+            <tr><td>Nuclear store</td><td>Nuclear reactor</td><td>The energy stored in the nucleus of an atom and may be released during nuclear fission or fusion.</td></tr>
+            <tr><td>Electrostatic store</td><td>Thunderclouds</td><td>The energy stored due to relative movement between electric charges.</td></tr>
+            <tr><td>Magnetic store</td><td>Fridge magnet</td><td>The energy stored due to relative movement between magnetic poles.</td></tr>
+        </table>
+        
+        <h3>6.1.2 Conservation of Energy</h3>
+
+        <blockquote>Energy cannot be created or destroyed but can be transferred from one store to another.  The total energy of an isolated system remains constant.</blockquote>
+        
+        <p>The principle of the conservation of energy states that energy cannot be created or destroyed; it can only be transferred or transformed from one form to another. This means that the total energy in an isolated system remains constant over time. To apply this principle to new situations or solve related problems, identify all forms of energy involved, such as kinetic, potential, thermal, or chemical energy. Calculate the initial and final energies, ensuring they are equal, accounting for energy transfers or transformations. For example, in a roller coaster, the gravitational potential energy at the highest point converts into kinetic energy as it descends, and vice versa, while the total energy remains constant. By understanding and tracking these energy changes, you can solve a wide range of physics problems accurately.</p>
+        
+        
+        <table width="100%"><tr><td>
+            <h4>Example</h4>
+        <p>A 5.0 kg object is dropped from a height of 10 meters. Assuming there is no air resistance, calculate the velocity of the object just before it hits the ground using the principle of conservation of energy.</p>
+        
+        <button id="btn1" data-div="ans2" onclick="reveal(this)">Reveal Answer</button>
+        <div id="ans2" style="display:none">
+            <p>The principle of conservation of energy states that the total energy remains constant. Here, the potential energy at the height is converted into kinetic energy just before impact.</p>
+            <p>Potential Energy (PE) at height, $PE = mgh = 5.0 \text{ kg} \times 9.81 \text{ m/s}^2 \times 10 \text{ m} = 490 \text{ J}$</p>
+            <p>Kinetic Energy (KE) just before impact, $KE = \dfrac{1}{2}mv^2 = PE$</p>
+            <p>So, $\dfrac{1}{2} \times 5.0 \text{ kg} \times v^2 = 490 \text{ J}$</p>
+            <p>$v^2 = \dfrac{490 \text{ J}}{2.5 \text{ kg}} = 196 \text{ m}^2/\text{s}^2$</p>
+            <p>$v = \sqrt{196 \text{ m}^2/\text{s}^2} = 14 \text{ m/s}$</p>
+            <p>Therefore, the velocity of the object just before it hits the ground is 14 m/s.</p>
+        </div>
+            
+            </td></tr></table>
+        
+    </body>
+</html>
+
