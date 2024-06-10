@@ -13,8 +13,13 @@ body {
     margin: 0 auto;
     max-width: 720px;
     padding: 2em 2em 4em;
+    z-index: 1;
 }
 
+span {
+    z-index: 1;
+    
+}
 h1, h2, h3, h4, h5, h6 {
     color: #222;
     font-weight: 600;
@@ -34,6 +39,66 @@ blockquote {
     padding-left: 15px;
     margin: 20px 20px;
     background-color: #f9f9f9;
+}
+
+.nav-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    z-index: 2;
+}
+
+.nav-menu > li {
+    position: relative;
+}
+
+.nav-menu > li > a {
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: block;
+}
+
+.nav-menu > li > a:hover {
+    background-color: #575757;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    top: 100%;
+    left: 100px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    min-width: 200px;
+    z-index: 2;
+}
+
+.dropdown > li > a {
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown > li > a:hover {
+    background-color: #575757;
+}
+
+.nav-menu > li:hover > .dropdown {
+    display: block;
+}
+
+.dropdown > li {
+    position: relative;
+}
+
+.dropdown .dropdown {
+    top: 0;
+    left: 100%;
 }
 
 a {
@@ -68,7 +133,24 @@ img {
         filter: grayscale(0%);
     }
 }
+.container {
+      background-color: #cbf5dd;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 94%;
+      text-align: left;
+    }
+#score {
+    font-style: italic;
+    font-size: 0.8em;
+}
 
+#feedback {
+    font-style: italic;
+    font-size: 1.0em;
+    color: mediumvioletred;
+}
 th {
     padding: 15px;
     background-color: darkgrey;
@@ -88,13 +170,12 @@ tr:nth-child(even) {
     background-color: whitesmoke;
 }
 
-
-
 ul {
   list-style: none;
   padding: 0;
   margin: 0;
   background: #1bc2a2;
+  z-index: 2;    
 }
 ul li {
   display: block;
@@ -150,7 +231,7 @@ ul:after {
 ul:after { clear: both; }
 
 ul li:hover>a {
-  background-color: #0abf53;
+  background-color: #1ba3a2;
   color: #ffffff !important;
 }
 
@@ -166,6 +247,15 @@ figure {
   text-indent: 10;
   border: none;
   margin: 1em;
-  padding: 1em;
+  padding: 0em;
 }
-
+figcaption {
+  float: none;
+  text-align: center;
+  font-style: italic;
+  font-size: smaller;
+  text-indent: 10;
+  border: none;
+  margin: 1em;
+  padding: 0em;    
+}

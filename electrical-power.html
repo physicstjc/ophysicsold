@@ -4,8 +4,8 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Power</title>
-        <meta name="description" content="O-level Physics Power">
+        <title>Electrical Power</title>
+        <meta name="description" content="O-level Physics Practical Electricity">
         <meta name="viewport" content="width=700, initial-scale=1.1">
         <link rel="stylesheet" href="../main.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css" integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ" crossorigin="anonymous">
@@ -32,6 +32,7 @@
             throwOnError : false
             });
             });
+            document.title = document.title = "TJC Physics - " + (location.pathname.substring(location.pathname.lastIndexOf("/") + 1)).toUpperCase().replace('.html','').replace('-',' ')
         </script>
       
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.css" integrity="sha384-NFGicHNcq1l2DafLerXQeI3h3jJY3dCcDQF+29rtRBHW7P7ti+/XIRY7ALbJOaeh" crossorigin="anonymous">
@@ -46,52 +47,46 @@
           $("#header").load("../header.html"); 
           $("#footer").load("../footer.html"); 
         });
-
         </script> 
-        
     </head>
     
     
     <body>
         <div id="header"></div>     
-        <h1>Unit 6 Energy</h1>
+        <h1>Unit 14 Practical Electricity</h1>
+        <h2>Electrical Power</h2>
         
-        <h2>6.3 Power</h2> (<a id="btn1" data-div="obj" onclick="reveal(this)">Objectives</a>)
-        <ol start="5" type="a" id="obj" style="display:none">
-            <li>recall and apply the relationship power = energy transfer / time taken to new situations or to solve related problems</li>
-        </ol>
-   
-        <h3>6.3.1 Definition</h3>
+        <h3>Energy and Power</h3>
         
-        <blockquote>Power is defined as the rate of energy transfer.</blockquote>
-        <p>In mathematical terms, it is expressed as:</p>
+        <p>Recall the definitions of energy and power in Unit 05.</p>
         
-        $$P = \dfrac{E}{t}$$
+        <p>Electrical power $P$ is given by</p>
         
-        where $P$ is the power,
-        <br>$E$ is the energy transferred, and
-        <br>$t$ is the time taken
+        $$P = IV$$
         
-        <p>The standard unit of power is the watt (W), where one watt equals one joule of work done per second (1 W = 1 J/s). For example, if a person does 100 joules of work in 20 seconds, the power exerted is 5.0 watts. </p>
+        <p align="center">where $P$ is the electrical power (unit: watt, W), <br>$I$ is electric current (unit: ampere, A), and<br>$V$ is the potential difference (unit: volt, V)</p>
         
+        <p>The rate of energy converted from electrical energy to other forms as a 2.0 A current passes through a device experiencing a potential difference of 3.0 V is, therefore, 6.0 W or 6.0 J per second.</p>
+        
+        <p>Substituting the relationship $V = IR$ or $I =\dfrac{V}{R}$ into the equation, we can obtain the alternative equations $$P = I^2R$$ and $$P = \dfrac{V^2}{R}$$ respectively. Any of these 3 equations can be used to calculate electrical power, and the choice on which to use depends or whether current or potential difference gets to be constant.</p>
         
         <table width="100%"><tr><td>
-            <h4>Example</h4>
-            <p>An elevator has a mass of 1000 kg and carries a maximum load of 800 kg. Determine the minimum power that the motor must deliver to lift the fully loaded elevator at a constant speed of 3.0 m s<sup>-1</sup>.</p>
+            <p>Light bulb A has a resistance of 2 $\Omega$ and light bulb B has a resistance of 4 $\Omega$. Which of the light bulbs is brighter when they are arranged:</p>
+            <ol>
+            <li>in series?</li>
+            <li>in parallel?</li></ol>
+            
             
             <button id="btn1" data-div="ans1" onclick="reveal(this)">Reveal Answer</button>
             <div id="ans1" style="display:none">
-                <p>Given that elevator is travelling at constant speed, this means that the work done by the motor is equal to the gain in gravitational potential energy of the elevator and the load.</p>
-                <p>$P = \dfrac{E}{t} = \dfrac{mgh}{t}$</p>
-                <p>$\>\>\>\>= 1800 \text{ kg} \times 10 \text{ N kg}^{-1} \times 3.0 \text{ m s}^{-1}$</p>
-                <p>$\>\>\>\>= 53 000 \text{ W}$
-            </p>
-            </div>
+             <ol>
+            <li>In series, the light bulb with the larger resistance shines brigher. Since current is the same through both bulbs, we can compare the power output by referrring to the ratio of power using the equation $P = I^2R$.</li>$$\dfrac{P_A}{P_B}=\dfrac{I_A^2R_A}{I_B^2R_B} = \dfrac{R_A}{R_B} = \dfrac{2}{4} = 0.5$$ In fact, bulb B has twice the power of bulb A.
+            <li>in parallel, it is the bulb with smaller resistance that is brighter. Since potential difference is constant, e can show this using the equation $P = \dfrac{V^2}{R}$. $$\dfrac{P_A}{P_B}=\dfrac{\frac{V_A^2}{R_A}}{\frac{V_B^2}{R_B}} \ $$</li></ol></div>
             
             </td></tr></table>
         
        
-        
+        <div id="footer"></div>        
     </body>
 </html>
 
