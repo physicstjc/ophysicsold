@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Describing Wave Motion</title>
+        <meta name="description" content="O-level Physics General Properties of Waves">
+        <meta name="viewport" content="width=700, initial-scale=1.1">
+        <link rel="stylesheet" href="../main.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css" integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ" crossorigin="anonymous">
+
+        <!-- The loading of KaTeX is deferred to speed up page rendering -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY" crossorigin="anonymous"></script>
+
+        <!-- To automatically render math in text elements, include the auto-render extension: -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                renderMathInElement(document.body, {
+                // customised options
+                // • auto-render specific keys, e.g.:
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false},
+                {left: '\\(', right: '\\)', display: false},
+                {left: '\\[', right: '\\]', display: true}
+            ],
+            // • rendering keys, e.g.:
+            throwOnError : false
+            });
+            });
+        </script>
+      
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.css" integrity="sha384-NFGicHNcq1l2DafLerXQeI3h3jJY3dCcDQF+29rtRBHW7P7ti+/XIRY7ALbJOaeh" crossorigin="anonymous">
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.js" integrity="sha384-HELAAZU8xvHgfT/8z4Mhmu+E2z3oBrMEuywaMh/CEd5uTZIDSct7TEaX+S43+dOi" crossorigin="anonymous"></script>
+    
+        <script src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+
+        <script> 
+        $(function(){
+          $("#header").load("../header.html"); 
+          $("#footer").load("../footer.html"); 
+        });
+
+        </script> 
+        
+    </head>
+    
+    
+    <body>
+        <div id="header"></div>     
+        <h1>Unit 10 General Properties of Waves</h1>
+        
+        <h2>10.1 Describing Wave Motion</h2> (<a id="btn1" data-div="obj" onclick="reveal(this)">Objectives</a>)
+        <ol start="1" type="a" id="obj" style="display:none">
+            <li>describe what is meant by wave motion as illustrated by vibrations in ropes and springs and by waves in a
+ripple tank (including use of the term wavefront)</li>
+            <li>show an understanding that waves transfer energy without transferring matter</li>
+            <li>define and use the terms speed, frequency, wavelength, period and amplitude, including graphical
+representation</li>
+            <li>recall and apply the relationship speed of wave = frequency × wavelength to new situations or to solve
+related problems</li>
+            <li>compare transverse and longitudinal waves and give suitable examples of each</li>
+        </ol>
+   
+        <h3>10.1.1 Wave Formation</h3>
+        
+        <a title="WIKIFISICA2020, CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Onda_Transversal_en_una_cuerda.gif"><img width="512" alt="Onda Transversal en una cuerda" src="https://upload.wikimedia.org/wikipedia/commons/a/ac/Onda_Transversal_en_una_cuerda.gif?20201118002809"></a>
+        
+        <p>The animation above shows the creation of a simple wave that moves along a rope. The hand holding on to one end of the rope is flicked up and then down to create a single pulse in the rope. An upward displacement in the rope is created by the flick of the hand. This disturbance moves away from the hand, carrying energy along the rope. The pulse travels along the rope as each segment of the rope affects the next segment. This happens because the rope is under tension. When one segment of the rope is displaced, it pulls on the neighboring segments, causing them to move as well. As the pulse travels, each segment of the rope moves up and then back down to its original position, transferring the energy of the disturbance along the rope. The movement of the rope segments creates a traveling wave, which is a pulse in this case.</p>
+        
+        <p>Two key ideas about a wave is demonstrated:</p>
+        <ol><li><em>Energy transfer</em>: The wave carries energy from the point of disturbance (the hand) to the other end of the rope.</li>
+            <li><em>Matter is not transferred</em>: The pulse (or whichever form the wave takes) moves in the direction of energy transfer but the medium through which the energy is carried, which in this case, is the rope segments, do not move from one end to another of the rope. Instead, each segment only oscillates about a fixed position.</li></ol>
+        <p>Simply put, <strong>waves transfer energy without transferring matter.</strong></p>
+        
+        <h3>10.1.2 Parts of a Wave</h3>
+        
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+
+    <p>
+        <strong>Amplitude:</strong> The maximum displacement of particles from their rest position.<br>
+        <strong>Wavelength (\(\lambda\)):</strong> The distance between two consecutive points in phase, such as crests or troughs.</p>
+    
+    <canvas id="distanceCanvas" width="600" height="200"></canvas>
+    <div id="controls">
+        <label for="wavelength">Wavelength (mm):</label>
+        <input type="range" id="wavelength" min="50" max="300" value="100">
+        <span id="wavelengthValue">100</span> mm<br>
+    </div>
+        
+        
+    <p>
+        <strong>Period (T):</strong> The time taken for one complete cycle of the wave.<br>
+        <strong>Frequency (f):</strong> The number of wave cycles per second, measured in Hertz (Hz), given by $f = \dfrac{1}{T}$.<br>
+        
+    <canvas id="timeCanvas" width="600" height="200"></canvas>
+    <div id="controls">
+        <label for="frequency">Frequency (Hz):</label>
+        <input type="range" id="frequency" min="0.5" max="10" value="5" step="0.1">
+        <span id="frequencyValue">10</span> Hz
+    </div>
+        
+    <script>
+        const wavelengthSlider = document.getElementById('wavelength');
+        const frequencySlider = document.getElementById('frequency');
+        const wavelengthValue = document.getElementById('wavelengthValue');
+        const frequencyValue = document.getElementById('frequencyValue');
+
+        wavelengthSlider.addEventListener('input', () => {
+            wavelengthValue.textContent = wavelengthSlider.value;
+            drawDistanceGraph();
+        });
+
+        frequencySlider.addEventListener('input', () => {
+            frequencyValue.textContent = frequencySlider.value;
+            drawTimeGraph();
+        });
+
+        function drawDoubleHeadedArrow(ctx, x1, y1, x2, y2, text) {
+            ctx.beginPath();
+            ctx.moveTo(x1, y1);
+            ctx.lineTo(x2, y2);
+            ctx.moveTo(x1, y1);
+            ctx.lineTo(x1 - 5, y1 + 5);
+            ctx.moveTo(x1, y1);
+            ctx.lineTo(x1 + 5, y1 + 5);
+            ctx.moveTo(x2, y2);
+            ctx.lineTo(x2 - 5, y2 - 5);
+            ctx.moveTo(x2, y2);
+            ctx.lineTo(x2 + 5, y2 - 5);
+            ctx.stroke();
+            ctx.font = '16px Arial';
+            ctx.fillText(text, (x1 + x2) / 2 - 20, (y1 + y2) / 2 - 10);
+        }
+
+        function drawHDoubleHeadedArrow(ctx, x1, y1, x2, y2, text) {
+            ctx.beginPath();
+            ctx.moveTo(x1, y1);
+            ctx.lineTo(x2, y2);
+            ctx.moveTo(x1, y1);
+            ctx.lineTo(x1 + 10, y1 - 5);
+            ctx.moveTo(x1, y1);
+            ctx.lineTo(x1 + 10, y1 + 5);
+            ctx.moveTo(x2, y2);
+            ctx.lineTo(x2 - 10, y2 - 5);
+            ctx.moveTo(x2, y2);
+            ctx.lineTo(x2 - 10, y2 + 5);
+            ctx.stroke();
+            ctx.font = '16px Arial';
+            ctx.fillText(text, (x1 + x2) / 2 - 20, (y1 + y2) / 2 - 10);
+        }
+
+        function drawDistanceGraph() {
+            const canvas = document.getElementById('distanceCanvas');
+            const ctx = canvas.getContext('2d');
+            const amplitude = 50;
+            const wavelength = parseFloat(wavelengthSlider.value);
+            const frequency = 1;
+            const period = 1 / frequency;
+            const timeScale = canvas.width / period;
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Draw Axes
+            ctx.beginPath();
+            ctx.moveTo(50, 0);
+            ctx.lineTo(50, canvas.height);
+            ctx.moveTo(0, canvas.height / 2);
+            ctx.lineTo(canvas.width, canvas.height / 2);
+            ctx.strokeStyle = 'black';
+            ctx.stroke();
+
+            ctx.font = '16px Arial';
+            ctx.fillStyle = 'black';
+            ctx.fillText('Displacement', 5, 20);
+            ctx.fillText('Distance', canvas.width - 60, canvas.height / 2 + 20);
+
+            // Draw Wave
+            ctx.beginPath();
+            ctx.moveTo(50, canvas.height / 2);
+
+            for (let x = 0; x < canvas.width - 50; x++) {
+                const y = canvas.height / 2 + amplitude * Math.sin((2 * Math.PI / wavelength) * x);
+                ctx.lineTo(x + 50, y);
+            }
+
+            ctx.strokeStyle = 'blue';
+            ctx.stroke();
+
+            ctx.strokeStyle = 'red';
+            drawDoubleHeadedArrow(ctx, 60, canvas.height / 2  - amplitude, 60, canvas.height / 2, 'Amplitude');
+            drawHDoubleHeadedArrow(ctx, 50, canvas.height - 10, 50 + wavelength, canvas.height - 10, 'Wavelength');
+        }
+
+        function drawTimeGraph() {
+            const canvas = document.getElementById('timeCanvas');
+            const ctx = canvas.getContext('2d');
+            const amplitude = 50;
+            const frequency = parseFloat(frequencySlider.value);
+            const period = 1 / frequency;
+            const timeScale = canvas.width / frequency;
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Draw Axes
+            ctx.beginPath();
+            ctx.moveTo(50, 0);
+            ctx.lineTo(50, canvas.height);
+            ctx.moveTo(0, canvas.height / 2);
+            ctx.lineTo(canvas.width, canvas.height / 2);
+            ctx.strokeStyle = 'black';
+            ctx.stroke();
+
+            ctx.font = '16px Arial';
+            ctx.fillStyle = 'black';
+            ctx.fillText('Displacement', 5, 20);
+            ctx.fillText('Time', canvas.width - 50, canvas.height / 2 + 20);
+
+            // Draw Wave
+            ctx.beginPath();
+            ctx.moveTo(50, canvas.height / 2);
+
+            for (let t = 0; t < canvas.width - 50; t++) {
+                const y = canvas.height / 2 + amplitude * Math.sin((2 * Math.PI * frequency) * (t / canvas.width));
+                ctx.lineTo(t + 50, y);
+            }
+
+            ctx.strokeStyle = 'blue';
+            ctx.stroke();
+
+            ctx.strokeStyle = 'red';
+            drawDoubleHeadedArrow(ctx, 60, canvas.height / 2  - amplitude, 60, canvas.height / 2, 'Amplitude');
+            drawHDoubleHeadedArrow(ctx, 50, canvas.height - 10, 50 + canvas.width / frequency, canvas.height - 10, 'Period');
+        }
+
+        window.onload = () => {
+            drawDistanceGraph();
+            drawTimeGraph();
+        };
+    </script>
+    <p>
+        <strong>Speed (v):</strong> The distance a wave travels per unit time, given by $v = f \lambda $.<br>    
+    </p>
+    <p>Since the speed of a wave in a homogeneous medium is a constant, changing the frequency changes the wavelength of the wave too, following the relationship $v = f \lambda $ as seen in the simulation below. Observe the animation of the two graphs representing a wave. The displacement-distance graph, when animated, shows the movement of an entire wave while the displacement-time graph represents the movement of a single particle (represented with a red dot) over time.</p>
+        
+   <iframe scrolling="no" title="Graphs of a Progressive Wave" src="https://www.geogebra.org/material/iframe/id/aezgpukm/width/638/height/478/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false" width="638px" height="478px" style="border:0px;"> </iframe>     
+        
+        
+        <h3>10.1.3 Transverse and Longitudinal Waves</h3>
+        
+        <p>Waves can be broadly categorized into two types based on the direction of the particle motion relative to the direction of the wave propagation: transverse waves and longitudinal waves.</p>
+        
+        <p>In a transverse wave, the particles of the medium move perpendicular to the direction of wave energy transfer. In a longitudinal wave, the particles of the medium move parallel to the direction of wave energy transfer.</p>
+        
+        <p>In the simulation below, you can observe the movement of the particles along the both types of waves. The particles to focus on are the little red dots. Note that each particle is oscillating about its equilibrium position.</p>
+        <iframe scrolling="no" title="Progressive Waves" src="https://www.geogebra.org/material/iframe/id/fsy8bpaq/width/640/height/480/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false" width="640px" height="480px" style="border:0px;"> </iframe>
+        
+        <p>This table compares the various aspects of both wave types.</p>
+    
+        <table border="0">
+    <thead>
+        <tr>
+            <th>Characteristic</th>
+            <th>Transverse Waves</th>
+            <th>Longitudinal Waves</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Particle Motion</td>
+            <td>Perpendicular to the direction of wave propagation</td>
+            <td>Parallel to the direction of wave propagation</td>
+        </tr>
+        <tr>
+            <td>Wave Components</td>
+            <td>Crests and Troughs</td>
+            <td>Compressions and Rarefactions</td>
+        </tr>
+        <tr>
+            <td>Amplitude</td>
+            <td>Maximum displacement from rest position</td>
+            <td>Maximum displacement from rest position</td>
+        </tr>
+        <tr>
+            <td>Wavelength (\(\lambda\))</td>
+            <td>Distance between two consecutive crests or troughs</td>
+            <td>Distance between two consecutive compressions or rarefactions</td>
+        </tr>
+        <tr>
+            <td>Frequency (f)</td>
+            <td>Number of wave cycles per second (Hertz)</td>
+            <td>Number of wave cycles per second (Hertz)</td>
+        </tr>
+        <tr>
+            <td>Speed (v)</td>
+            <td>Depends on the medium, given by \( v = f \lambda \)</td>
+            <td>Depends on the medium, given by \( v = f \lambda \)</td>
+        </tr>
+        <tr>
+            <td>Examples</td>
+            <td>Light waves, water waves, waves on a string or rope</td>
+            <td>Sound waves, seismic P-waves, compression waves in a slinky</td>
+        </tr>
+    </tbody>
+</table>
+        <figcaption>Comparing transverse and longitudinal waves</figcaption>
+
+        <p>The following videos demonstrate the two types of waves created in a slinky.</p>
+        <h4>Transverse Waves</h4>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/g8GcMn7K0u4?si=Im_hJBp-sCNszFjc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        
+        <h4>Longitudinal Waves</h4>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/fMJrtheQfZw?si=HE18X3o8aiL3Awte" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+        
+    <div class="container">
+        <h3>Practice</h3>
+
+            <div class="score" id="score">Score: 0/0</div>
+            <div class="problem" id="problem"></div><br>
+            <input type="text" id="answer" placeholder="Enter your answer">
+            <span id="unit"></span>
+            <button id="submit" onclick="checkAnswer()">Submit</button><br>
+            <button id="previous" onclick="previousProblem()">Previous</button>
+            <button id="next" onclick="nextProblem()">Next</button>
+            <div class="feedback" id="feedback"></div>
+    </div>
+        
+        <script>
+        let currentProblemIndex = 0;
+        let score = 0;
+        let attempts = 0;
+        const attemptedProblems = [];
+
+        const problems = [
+    {
+        question: "A wave has a frequency of 500 Hz and a wavelength of 0.8 meters. What is the speed of the wave?",
+        correctAnswer: 400,
+        unit: "m/s",
+        equation: "Wave Speed = Frequency × Wavelength",
+        explanation: "The speed of the wave is calculated by multiplying the frequency (500 Hz) by the wavelength (0.8 meters). Therefore, the wave speed is 500 Hz × 0.8 m = 400 m/s."
+    },
+    {
+        question: "A wave travels at a speed of 300 m/s and has a wavelength of 1.5 meters. What is the frequency of the wave?",
+        correctAnswer: 200,
+        unit: "Hz",
+        equation: "Frequency = Wave Speed / Wavelength",
+        explanation: "The frequency of the wave is calculated by dividing the wave speed (300 m/s) by the wavelength (1.5 meters). Therefore, the frequency is 300 m/s ÷ 1.5 m = 200 Hz."
+    },
+    {
+        question: "A wave has a period of 0.02 seconds. What is the frequency of the wave?",
+        correctAnswer: 50,
+        unit: "Hz",
+        equation: "Frequency = 1 / Period",
+        explanation: "The frequency of the wave is calculated by taking the reciprocal of the period (0.02 seconds). Therefore, the frequency is 1 ÷ 0.02 s = 50 Hz."
+    },
+    {
+        question: "A wave has a frequency of 200 Hz. What is the period of the wave?",
+        correctAnswer: 0.005,
+        unit: "s",
+        equation: "Period = 1 / Frequency",
+        explanation: "The period of the wave is calculated by taking the reciprocal of the frequency (200 Hz). Therefore, the frequency is 1 ÷ 200 Hz = 0.005 s."
+    },
+    {
+        question: "A sound wave has a frequency of 250 Hz and travels at a speed of 340 m/s in air. What is the wavelength of the sound wave?",
+        correctAnswer: 1.36,
+        unit: "meters",
+        equation: "Wavelength = Wave Speed / Frequency",
+        explanation: "The wavelength of the sound wave is calculated by dividing the wave speed (340 m/s) by the frequency (250 Hz). Therefore, the wavelength is 340 m/s ÷ 250 Hz = 1.36 meters."
+    }
+];
+
+    function shuffle(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+    }
+
+    shuffle(problems);
+
+    function displayProblem() {
+      if (currentProblemIndex >= problems.length) {
+        document.getElementById('problem').innerText = 'Congratulations! You have completed all problems.';
+        document.getElementById('answer').style.display = 'none';
+        document.getElementById('unit').style.display = 'none';
+        document.getElementById('submit').style.display = 'none';
+        document.getElementById('previous').style.display = 'none';
+        document.getElementById('next').style.display = 'none';
+        return;
+      }
+
+      document.getElementById('problem').innerText = problems[currentProblemIndex].question;
+      document.getElementById('unit').innerText = problems[currentProblemIndex].unit;
+      document.getElementById('feedback').innerText = '';
+      const answerInput = document.getElementById('answer');
+      const submitButton = document.getElementById('submit');
+
+      if (attemptedProblems[currentProblemIndex]) {
+        answerInput.value = attemptedProblems[currentProblemIndex].userAnswer;
+        answerInput.disabled = true;
+        submitButton.disabled = true;
+        submitButton.classList.add('disabled');
+        document.getElementById('feedback').innerText = attemptedProblems[currentProblemIndex].feedback;
+      } else {
+        answerInput.value = '';
+        answerInput.disabled = false;
+        submitButton.disabled = false;
+        submitButton.classList.remove('disabled');
+        document.getElementById('feedback').innerText = '';
+      }
+    }
+
+    function updateScore() {
+      document.getElementById('score').innerText = `Score: ${score}/${attempts}`;
+    }
+
+    function checkAnswer() {
+      const userAnswer = parseFloat(document.getElementById('answer').value);
+      const correctAnswer = problems[currentProblemIndex].correctAnswer;
+
+      attempts++;
+      let feedback = '';
+      if (userAnswer === correctAnswer) {
+        score++;
+        feedback = 'Correct!';
+        document.getElementById('feedback').classList.add('correct');
+        document.getElementById('feedback').classList.remove('incorrect');
+      } else {
+        feedback = 'Incorrect. ' + problems[currentProblemIndex].explanation;
+        document.getElementById('feedback').classList.add('incorrect');
+        document.getElementById('feedback').classList.remove('correct');
+      }
+
+      updateScore();
+      attemptedProblems[currentProblemIndex] = { userAnswer, feedback };
+
+      document.getElementById('answer').disabled = true;
+      document.getElementById('submit').disabled = true;
+      document.getElementById('submit').classList.add('disabled');
+      document.getElementById('feedback').innerText = feedback;
+    }
+
+    function nextProblem() {
+      if (currentProblemIndex < problems.length - 1) {
+        currentProblemIndex++;
+        displayProblem();
+      }
+    }
+
+    function previousProblem() {
+      if (currentProblemIndex > 0) {
+        currentProblemIndex--;
+        displayProblem();
+      }
+    }
+
+    displayProblem();
+  </script>
+    </body>
+</html>
+
