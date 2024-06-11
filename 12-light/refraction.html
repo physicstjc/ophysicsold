@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Reflection</title>
+        <meta name="description" content="O-level Physics Light">
+        <meta name="viewport" content="width=700, initial-scale=1.1">
+        <link rel="stylesheet" href="../main.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css" integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ" crossorigin="anonymous">
+
+        <!-- The loading of KaTeX is deferred to speed up page rendering -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY" crossorigin="anonymous"></script>
+
+        <!-- To automatically render math in text elements, include the auto-render extension: -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                renderMathInElement(document.body, {
+                // customised options
+                // • auto-render specific keys, e.g.:
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false},
+                {left: '\\(', right: '\\)', display: false},
+                {left: '\\[', right: '\\]', display: true}
+            ],
+            // • rendering keys, e.g.:
+            throwOnError : false
+            });
+            });
+        </script>
+      
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.css" integrity="sha384-NFGicHNcq1l2DafLerXQeI3h3jJY3dCcDQF+29rtRBHW7P7ti+/XIRY7ALbJOaeh" crossorigin="anonymous">
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.js" integrity="sha384-HELAAZU8xvHgfT/8z4Mhmu+E2z3oBrMEuywaMh/CEd5uTZIDSct7TEaX+S43+dOi" crossorigin="anonymous"></script>
+    
+        <script src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+
+        <script> 
+        $(function(){
+          $("#header").load("../header.html"); 
+          $("#footer").load("../footer.html"); 
+        });
+
+        </script> 
+        
+        <style>
+        .correct { color: green; }
+        .incorrect { color: red; }
+        .disabled { opacity: 0.5; cursor: not-allowed; }
+        </style>
+        
+    </head>
+    
+    
+    <body>
+        <div id="header"></div>     
+        <h1>Unit 12 Light</h1>
+        
+        <h2>12.2 Refraction</h2> (<a id="btn1" data-div="obj" onclick="reveal(this)">Objectives</a>)
+        <ol start="1" type="a" id="obj" style="display:none">
+            <li>recall and use the terms normal, angle of incidence and angle of refraction to describe the refraction of light</li>
+            <li>recall and apply the relationship sin i / sin r = constant to new situations or to solve related problems </li>
+            <li>define refractive index of a medium in terms of the ratio of speed of light in vacuum and in the medium</li>
+            <li>explain the terms critical angle and total internal reflection</li>
+            <li>apply total internal reflection to the use of optical fibres in telecommunication and medicine, stating the advantages of such use</li>
+        </ol>
+            
+        <h3>12.2.1 Refractive Index</h3>
+        <p>The refractive index (𝑛) of a medium is defined as the ratio of the speed of light in a vacuum (𝑐) to the speed of light in the medium (𝑣). Mathematically, this can be expressed as:$$n = \dfrac{c}{v}$$</p>
+        
+        <p>The speed of light in a vacuum is a constant value, representing the maximum speed at which light can travel, which is approximately $3.0 \times 10^8$ m/s. When light travels through a medium (such as air, water, or glass), it slows down due to interactions with the particles in the medium. The speed of light in the medium is always less than the speed of light in a vacuum.</p>
+        
+        <p>The refractive index 𝑛 is a dimensionless number that indicates how much the light slows down in the medium compared to its speed in a vacuum. For example, if the refractive index of water is 1.33, this means light travels 1.33 times slower in water than in a vacuum.</p>
+        
+        <h3>12.2.2 Laws of Refraction</h3>
+        
+        <p>The laws of refraction describe how light (or any wave) changes direction when it passes from one medium to another. These laws are fundamental to understanding phenomena such as lenses, prisms, and the behavior of light in various materials.</p>
+        
+        <h4>The First Law of Refraction</h4>
+        <blockquote>The incident ray, the refracted ray, and the normal lie in the same plane</blockquote>
+        
+        <p>This means that the path taken by the light ray before and after refraction, as well as the normal, all lie in a single two-dimensional plane.</p>
+       
+        <h4>The Second Law of Refraction, a.k.a. Snell's Law</h4>
+         <blockquote>The ratio of the sine of the angle of incidence $\theta_i$ to the sine of the angle of reflection $\theta_r$ is constant and is equal to the ratio of the refractive indices of the two media. </blockquote>
+        
+        <p>This can be expressed mathematically as: $\dfrac{\sin \theta_i}{\sin \theta_r} = \dfrac{n_r}{n_i}$</p>
+        
+        <p>or equivalently, $n_i \sin \theta_i = n_r \sin \theta_r$</p>
+        
+        <p>where:</p>
+            <ul.b>
+              <li>$\theta_i$ is the angle of incidence (the angle between the incident ray and the normal)</li>
+              <li>$\theta_r$ is the angle of refraction (the angle between the refracted ray and the normal)</li>
+              <li>$n_i$ is the refractive index of the medium through which the incident ray passes</li>
+              <li>$n_r$ is the refractive index of the second through which the refracted ray passes</li>
+            </ul.b>
+        
+        <img src="refracted-ray.png" width="360px">
+        
+        <h3>12.2.3 Refracted Image</h3>
+        <p>A refracted image is formed when light passes through a boundary between two different media, changing direction due to the change in speed of light in each medium. Here are the key characteristics of a refracted image:</p>
+
+            <ol>
+                <li>The refracted image appears to be at a different position from where the object actually is. This is due to the bending of light rays as they pass from one medium to another.</li>
+                <li>The image may appear distorted because the light rays do not travel in straight lines after refraction. This can cause objects to look bent, stretched, or compressed.</li>
+                <li>Depending on the refractive indices of the two media, the image can appear larger (magnified) or smaller (reduced) than the actual object.</li>
+                <li>A refracted image can be virtual or real.</li>
+                
+            </ol>
+        
+        <p>Using the simulation below, adjust the positions of the object and eye to observe how the rays of light reaches the eye from the object. The eye is assumed to be in air. The refractive index of the medium in which the object is round can be varied using the slider. You can also adjust the position of the eye. It will appear that the image alway looks closer than the object if the light is coming from a medium with higher refractive index.</p>
+        
+        <iframe scrolling="no" title="Where is the Fish? A Refraction Simulation" src="https://www.geogebra.org/material/iframe/id/kdszgpfg/width/640/height/480/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false" width="640px" height="480px" style="border:0px;"> </iframe>
+        
+        <table width="100%">
+        <tr>
+            <td>
+                <p>Consider light traveling from air ($n_1 = 1$) into water ($n_2 = 1.33$). If the angle of incidence in air is $30 \degree$, calculate the angle of refraction in water.</p>
+                <button id="btn1" data-div="ans1" onclick="reveal(this)">Reveal Answer</button>
+                <div id="ans1" style="display:none">
+                    <p>Using Snell's law: $$n_1 \sin \theta_1 = n_2 \sin \theta_2$$</p>
+                    <p>$$1 \cdot \sin 30 \degree = 1.33 \cdot \sin \theta_2$$</p>
+                    <p>$$\sin \theta_2 = \dfrac{\sin 30 \degree}{1.33} = \dfrac{0.5}{1.33} \approx 0.376$$</p>
+                    <p>$$\theta_2 = \sin^{-1}(0.376) \approx 22.1  \degree$$</p>
+                </div>
+            </td>
+        </tr>
+        </table>
+
+        
+        <p>You can use the following interactive to practise calculations involving Snell's law. Use the pink slider to change the quantity to find. Adjust the refractice indices using the sliders to vary the values in the question. You can also shift the origin of the incident ray.</p>
+        
+        <iframe scrolling="no" title="Refraction Self-Test" src="https://www.geogebra.org/material/iframe/id/myqcfy6x/width/640/height/360/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false" width="640px" height="360px" style="border:0px;"> </iframe>
+        
+        <div class="container">
+    <h3>Practice</h3>
+    <div class="score" id="score">Score: 0/0</div>
+    <div class="problem" id="problem"></div><br>
+    <button id="submit" onclick="checkAnswer()">Submit</button><br>
+    <button id="previous" onclick="previousProblem()">Previous</button>
+    <button id="next" onclick="nextProblem()">Next</button>
+    <div class="feedback" id="feedback"></div>
+</div>
+
+<script>
+    let currentProblemIndex = 0;
+    let score = 0;
+    let attempts = 0;
+    const attemptedProblems = [];
+
+    const problems = [
+        {
+            question: "What is the formula for Snell's law?",
+            correctAnswer: "n₁ * sin(θ₁) = n₂ * sin(θ₂)",
+            options: ["n₁ * cos(θ₁) = n₂ * cos(θ₂)", "n₁ * cos(θ₂) = n₂ * cos(θ₁)", "n₁ * sin(θ₁) = n₂ * sin(θ₂)", "n₁ * sin(θ₂) = n₂ * sin(θ₁)"],
+            explanation: "Snell's law relates the angles of incidence and refraction to the refractive indices of the two media."
+        },
+        {
+            question: "If light travels from air (n₁ = 1.0) into water (n₂ = 1.33) at an angle of 30 degrees, what is the angle of refraction in the water?",
+            correctAnswer: "22.1°",
+            options: ["19.5°", "22.1°", "30.0°", "45.0°"],
+            explanation: "Using Snell's law: sin(θ₂) = n₁/n₂ * sin(θ₁) => sin(θ₂) = 1/1.33 * sin(30°) => θ2 ≈ 22.1°."
+        },
+        {
+            question: "If the refractive index of medium 1 is 1.5 and medium 2 is 2.0, and the angle of incidence is 45°, what is the angle of refraction?",
+            correctAnswer: "30°",
+            options: ["15°", "30°", "45°", "60°"],
+            explanation: "Using Snell's law: sin(θ₂) = n₁/n₂ * sin(θ₁) => sin(θ₂) = 1.5/2.0 * sin(45°) => θ₂ ≈ 30°."
+        },
+        {
+            question: "In Snell's law, what does 'n' represent?",
+            correctAnswer: "Refractive index",
+            options: ["Speed of light", "Frequency", "Wavelength", "Refractive index"],
+            explanation: "In Snell's law, 'n' represents the refractive index of a medium."
+        }
+    ];
+
+    function shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    }
+
+    shuffle(problems);
+
+    function displayProblem() {
+        if (currentProblemIndex >= problems.length) {
+            const summaryMessage = `Congratulations! You have completed all problems. Your score is ${score} out of ${attempts}.`;
+            document.getElementById('problem').innerText = summaryMessage;
+            document.getElementById('submit').style.display = 'none';
+            document.getElementById('previous').style.display = 'none';
+            document.getElementById('next').style.display = 'none';
+            document.getElementById('feedback').innerText = '';
+            return;
+        }
+
+        const problem = problems[currentProblemIndex];
+        document.getElementById('problem').innerHTML = `
+            <p>${problem.question}</p>
+            ${problem.options.map(option => `
+                <label>
+                    <input type="radio" name="answer" value="${option}"> ${option}
+                </label><br>
+            `).join('')}
+        `;
+        document.getElementById('feedback').innerText = '';
+
+        if (attemptedProblems[currentProblemIndex]) {
+            const { userAnswer, feedback } = attemptedProblems[currentProblemIndex];
+            document.querySelector(`input[name="answer"][value="${userAnswer}"]`).checked = true;
+            document.querySelectorAll('input[name="answer"]').forEach(radio => radio.disabled = true);
+            document.getElementById('submit').disabled = true;
+            document.getElementById('submit').classList.add('disabled');
+            document.getElementById('feedback').innerText = feedback;
+        } else {
+            document.getElementById('submit').disabled = false;
+            document.getElementById('submit').classList.remove('disabled');
+        }
+    }
+
+    function updateScore() {
+        document.getElementById('score').innerText = `Score: ${score}/${attempts}`;
+    }
+
+    function checkAnswer() {
+        const userAnswer = document.querySelector('input[name="answer"]:checked').value;
+        const correctAnswer = problems[currentProblemIndex].correctAnswer;
+
+        attempts++;
+        let feedback = '';
+        if (userAnswer === correctAnswer) {
+            score++;
+            feedback = 'Correct!';
+            document.getElementById('feedback').classList.add('correct');
+            document.getElementById('feedback').classList.remove('incorrect');
+        } else {
+            feedback = 'Incorrect. ' + problems[currentProblemIndex].explanation;
+            document.getElementById('feedback').classList.add('incorrect');
+            document.getElementById('feedback').classList.remove('correct');
+        }
+
+        updateScore();
+        attemptedProblems[currentProblemIndex] = { userAnswer, feedback };
+
+        const radios = document.querySelectorAll('input[name="answer"]');
+        radios.forEach(radio => radio.disabled = true);
+        document.getElementById('submit').disabled = true;
+        document.getElementById('submit').classList.add('disabled');
+        document.getElementById('feedback').innerText = feedback;
+    }
+
+    function nextProblem() {
+        if (currentProblemIndex < problems.length - 1) {
+            currentProblemIndex++;
+            displayProblem();
+        }
+    }
+
+    function previousProblem() {
+        if (currentProblemIndex > 0) {
+            currentProblemIndex--;
+            displayProblem();
+        }
+    }
+
+    displayProblem();
+</script>
+        
+        <h3>12.2.4 Critical Angle and Total Internal Reflection</h3>
+        
+        <h4>Critical Angle</h4>
+        <p>The critical angle is the angle of incidence beyond which light traveling from a denser medium to a less dense medium is no longer refracted but instead is entirely reflected back into the denser medium. This phenomenon occurs when light moves from a medium with a higher refractive index $n_1$ to a medium with a lower refractive index $n_2$.</p>
+        
+        <blockquote>The critical angle $\theta_c$ can be defined as the angle of incidence in the denser medium at which the angle of refraction in the less dense medium is 90 degrees.</blockquote>
+        
+        <p>At this angle, the refracted ray runs along the boundary between the two media. The critical angle can be calculated using Snell's law: $$n_1 \sin \theta_c = n_2 \sin 90 \degree$$</p>
+        
+        <p>Since $\sin 90 \degree = 1$, the formula simplifies to: $$\sin \theta_c = \dfrac{n_2}{n_1}$$ and $$ \theta_c = \sin^{-1}(\dfrac{n_2}{n_1})$$</p>
+        
+        <h4>Total Internal Reflection</h4>
+        
+        <p>Total internal reflection occurs when the angle of incidence in the denser medium is greater than the critical angle. Under these conditions, the light does not pass into the less dense medium at all. Instead, it is completely reflected back into the denser medium.</p>
+        
+        <p>Conditions for Total Internal Reflection:</p>
+            <ol>
+                <li>Light must travel from a denser medium to a less dense medium: This means from a medium with a higher refractive index to one with a lower refractive index.</li>
+                <li>Angle of Incidence must be greater than the Critical Angle: When the angle of incidence exceeds the critical angle, refraction cannot occur, and all the light is reflected internally.</li>
+            </ol>
+        
+        <table width="100%"><tr><td>
+            <p>Consider light traveling from water ($n_1 = 1.33$) to air ($n_2 = 1$). Calculate the critical angle.</p>
+            <button id="btn1" data-div="ans1" onclick="reveal(this)">Reveal Answer</button>
+            <div id="ans1" style="display:none">
+                <p>$$\sin \theta_c = \dfrac{n_2}{n_1} = \dfrac{1}{1.33}$$
+                $$ \theta_c = \sin^{-1}(\dfrac{1}{1.33}) \approx 48.6 \degree$$</p>
+            </div>
+            </td></tr></table>
+        
+        <p>Using the simulation below, vary the refractive indices and practise calculating the critical angles.</p>
+        
+        <iframe scrolling="no" title="Critical Angle Self-Test" src="https://www.geogebra.org/material/iframe/id/ffsz4sfy/width/640/height/480/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false" width="640px" height="480px" style="border:0px;"> </iframe>
+        
+        <h3>12.2.5 Applications of Total Internal Reflection</h3>
+        
+        <p>Optical fibres have their core as the central part of the fibre where the light is transmitted. It has a higher refractive index than the cladding, which is the outer optical material surrounding the core. Light is introduced into the core of the optical fibre at one end, typically by a light-emitting diode (LED) or laser. When light enters the fibre, it travels through the core. If the angle of incidence (the angle at which the light hits the boundary between the core and cladding) is less than the critical angle, some light will refract into the cladding. The angle of incidence is usually greater than the critical angle, so that the light will not pass into the cladding but will be entirely reflected back into the core. This reflection continues along the length of the fibre, with the light bouncing off the core-cladding boundary repeatedly.</p>
+        <a title="User A1 at the English Wikipedia, CC BY-SA 3.0 &lt;http://creativecommons.org/licenses/by-sa/3.0/&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Optic_fibre-numerical_aperture_diagram.svg"><img width="512" alt="Optic fibre-numerical aperture diagram" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Optic_fibre-numerical_aperture_diagram.svg/512px-Optic_fibre-numerical_aperture_diagram.svg.png?20101126090923"></a>
+        
+        
+        <h4>Optical Fibres in Telecommunication</h4>
+        
+        <p>Optical fibres can carry a much higher amount of data at high speeds compared to traditional copper cables due to their high bandwidth capacity and speed.</p>
+        <p>The use of total internal reflection minimizes signal loss, allowing data to be transmitted over long distances without significant degradation.</p>
+        <p>Unlike copper cables, optical fibres are immune to electromagnetic interference, ensuring a clearer and more reliable signal.</p>
+        
+        
+        <h4>Optical Fibres in Medical Imaging</h4>
+        <p>Optical fibres are used in endoscopes to transmit light and images from inside the body to external viewing equipment, aiding in diagnosis and surgery.</p>
+            
+        <p>Optical fibres can also deliver laser energy precisely to target tissues, used in various surgical procedures. This enables minimally invasive surgeries and diagnostic procedures, reducing patient recovery time and risk of complications.</p>
+        
+        <div class="container">
+        <h3>Practice</h3>
+        <div class="score" id="score2">Score: 0/0</div>
+        <div class="problem" id="problem2"></div><br>
+        <button id="submit2" onclick="quiz2.checkAnswer()">Submit</button><br>
+        <button id="previous2" onclick="quiz2.previousProblem()">Previous</button>
+        <button id="next2" onclick="quiz2.nextProblem()">Next</button>
+        <div class="feedback" id="feedback2"></div>
+            
+        <script>
+            const quiz2 = (function() {
+            let currentProblemIndex = 0;
+            let score = 0;
+            let attempts = 0;
+            const attemptedProblems = [];
+
+            const problems = [
+                {
+                    question: "When light travels from a denser medium to a less dense medium at an angle greater than the critical angle, what phenomenon occurs?",
+                    correctAnswer: "Total internal reflection",
+                    options: ["Refraction", "Diffraction", "Total internal reflection", "Dispersion"],
+                    explanation: "Total internal reflection occurs when the angle of incidence exceeds the critical angle and light is reflected entirely within the denser medium."
+                },
+                {
+                    question: "If the refractive index of glass is 1.5 and the refractive index of air is 1, what is the critical angle for light traveling from glass to air?",
+                    correctAnswer: "41.8°",
+                    options: ["30.0°", "41.8°", "48.6°", "60.0°"],
+                    explanation: "Using Snell's law: sin(θ) = n₂/n₁ => sin(θc) = 1/1.5 => θc ≈ 41.8°."
+                },
+                {
+                    question: "What is the main advantage of using optical fibers in telecommunications?",
+                    correctAnswer: "High-speed data transmission with minimal loss",
+                    options: ["High-speed data transmission with minimal loss", "Low cost", "Ease of installation", "High durability"],
+                    explanation: "Optical fibers provide high-speed data transmission with minimal loss, making them ideal for telecommunications."
+                },
+                {
+                    question: "In endoscopy, total internal reflection is used to:",
+                    correctAnswer: "Transmit light through flexible optical fibers to visualize internal organs",
+                    options: ["Measure blood pressure", "Analyze blood samples", "Transmit light through flexible optical fibers to visualize internal organs", "Magnify small objects"],
+                    explanation: "Endoscopes use total internal reflection to transmit light through flexible optical fibers, allowing doctors to visualize internal organs."
+                },
+                {
+                    question: "Which characteristic of optical fibers makes them suitable for telecommunications?",
+                    correctAnswer: "Their ability to carry large amounts of data over long distances with minimal signal loss",
+                    options: ["Their ability to carry large amounts of data over long distances with minimal signal loss", "Their high tensile strength", "Their low manufacturing cost", "Their ease of repair"],
+                    explanation: "Optical fibers can carry large amounts of data over long distances with minimal signal loss, which is essential for telecommunications."
+                },
+                {
+                    question: "Total internal reflection in optical fibers helps in:",
+                    correctAnswer: "Maintaining the integrity of the signal over long distances",
+                    options: ["Maintaining the integrity of the signal over long distances", "Reducing the cost of signal transmission", "Increasing the speed of signal processing", "Simplifying the installation process"],
+                    explanation: "Total internal reflection ensures that the signal remains strong and intact over long distances in optical fiber communications."
+                }
+            ];
+
+            function shuffle(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+            }
+
+            shuffle(problems);
+
+            function displayProblem() {
+                if (currentProblemIndex >= problems.length) {
+                    const summaryMessage = `Congratulations! You have completed all problems. Your score is ${score} out of ${attempts}.`;
+                    document.getElementById('problem2').innerText = summaryMessage;
+                    document.getElementById('submit2').style.display = 'none';
+                    document.getElementById('previous2').style.display = 'none';
+                    document.getElementById('next2').style.display = 'none';
+                    document.getElementById('feedback2').innerText = '';
+                    return;
+                }
+
+                const problem = problems[currentProblemIndex];
+                document.getElementById('problem2').innerHTML = `
+                    <p>${problem.question}</p>
+                    ${problem.options.map(option => `
+                        <label>
+                            <input type="radio" name="answer2" value="${option}"> ${option}
+                        </label><br>
+                    `).join('')}
+                `;
+                document.getElementById('feedback2').innerText = '';
+
+                if (attemptedProblems[currentProblemIndex]) {
+                    const { userAnswer, feedback } = attemptedProblems[currentProblemIndex];
+                    document.querySelector(`input[name="answer2"][value="${userAnswer}"]`).checked = true;
+                    document.querySelectorAll('input[name="answer2"]').forEach(radio => radio.disabled = true);
+                    document.getElementById('submit2').disabled = true;
+                    document.getElementById('submit2').classList.add('disabled');
+                    document.getElementById('feedback2').innerText = feedback;
+                } else {
+                    document.getElementById('submit2').disabled = false;
+                    document.getElementById('submit2').classList.remove('disabled');
+                }
+            }
+
+            function updateScore() {
+                document.getElementById('score2').innerText = `Score: ${score}/${attempts}`;
+            }
+
+            function checkAnswer() {
+                const userAnswer = document.querySelector('input[name="answer2"]:checked').value;
+                const correctAnswer = problems[currentProblemIndex].correctAnswer;
+
+                attempts++;
+                let feedback = '';
+                if (userAnswer === correctAnswer) {
+                    score++;
+                    feedback = 'Correct!';
+                    document.getElementById('feedback2').classList.add('correct');
+                    document.getElementById('feedback2').classList.remove('incorrect');
+                } else {
+                    feedback = 'Incorrect. ' + problems[currentProblemIndex].explanation;
+                    document.getElementById('feedback2').classList.add('incorrect');
+                    document.getElementById('feedback2').classList.remove('correct');
+                }
+
+                updateScore();
+                attemptedProblems[currentProblemIndex] = { userAnswer, feedback };
+
+                const radios = document.querySelectorAll('input[name="answer2"]');
+                radios.forEach(radio => radio.disabled = true);
+                document.getElementById('submit2').disabled = true;
+                document.getElementById('submit2').classList.add('disabled');
+                document.getElementById('feedback2').innerText = feedback;
+            }
+
+            function nextProblem() {
+                if (currentProblemIndex < problems.length - 1) {
+                    currentProblemIndex++;
+                    displayProblem();
+                }
+            }
+
+            function previousProblem() {
+                if (currentProblemIndex > 0) {
+                    currentProblemIndex--;
+                    displayProblem();
+                }
+            }
+
+            displayProblem();
+
+            return {
+                checkAnswer,
+                nextProblem,
+                previousProblem
+            };
+        })();
+    </script></div>
+        
+        
+        
+        
+    </body>
+</html>
+
