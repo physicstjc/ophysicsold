@@ -65,11 +65,10 @@ blockquote {
 }
 
 .dropdown {
-    display: none;
     position: absolute;
     background-color: #333;
-    top: 100%;
-    left: 100px;
+    top: 0%;
+    left: 240px;
     list-style: none;
     padding: 0;
     margin: 0;
@@ -79,7 +78,7 @@ blockquote {
 
 .dropdown > li > a {
     color: white;
-    padding: 10px;
+    padding: 14px;
     text-decoration: none;
     display: block;
 }
@@ -258,4 +257,8 @@ figcaption {
   border: none;
   margin: 1em;
   padding: 0em;    
+}
+.katex {
+    font-family: sans-serif !important;
+    font-size: 16px !important;
 }
