@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Describing Wave Motion</title>
+        <meta name="description" content="O-level Physics General Properties of Waves">
+        <meta name="viewport" content="width=700, initial-scale=1.1">
+        <link rel="stylesheet" href="../main.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css" integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ" crossorigin="anonymous">
+
+        <!-- The loading of KaTeX is deferred to speed up page rendering -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY" crossorigin="anonymous"></script>
+
+        <!-- To automatically render math in text elements, include the auto-render extension: -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                renderMathInElement(document.body, {
+                // customised options
+                // • auto-render specific keys, e.g.:
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false},
+                {left: '\\(', right: '\\)', display: false},
+                {left: '\\[', right: '\\]', display: true}
+            ],
+            // • rendering keys, e.g.:
+            throwOnError : false
+            });
+            });
+        </script>
+      
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.css" integrity="sha384-NFGicHNcq1l2DafLerXQeI3h3jJY3dCcDQF+29rtRBHW7P7ti+/XIRY7ALbJOaeh" crossorigin="anonymous">
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.js" integrity="sha384-HELAAZU8xvHgfT/8z4Mhmu+E2z3oBrMEuywaMh/CEd5uTZIDSct7TEaX+S43+dOi" crossorigin="anonymous"></script>
+    
+        <script src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+
+        <script> 
+        $(function(){
+          $("#header").load("../header.html"); 
+          $("#footer").load("../footer.html"); 
+        });
+
+        </script> 
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    </head>
+    
+    
+    <body>
+        <div id="header"></div>     
+        <h1>Unit 10 General Properties of Waves</h1>
+        
+        <h2>10.2 Sound</h2> (<a id="btn1" data-div="obj" onclick="reveal(this)">Objectives</a>)
+        <ol start="1" type="a" id="obj" style="display:none">
+            <li>show an understanding that sound can be produced by vibrating sources and a medium is required for the
+transmission of sound.</li>
+            <li>describe the longitudinal nature of sound waves in terms of the processes of compression and rarefaction</li>
+            <li>relate loudness of a sound wave to its amplitude and pitch to its frequency</li>
+            <li>describe how the reflection of sound may produce an echo, and how this may be used for measuring
+distances</li>
+            <li>describe and explain how ultrasound is used, e.g. including sonar and medical scanning of soft tissue.</li>
+        </ol>
+   
+        <h3>10.2.1 Generation of Sound</h3>
+        
+        <p>Sound is produced when a source vibrates, creating pressure waves in the surrounding medium. For instance, when a guitar string is plucked, it vibrates back and forth, compressing and rarefying the air particles around it. These alternating high and low-pressure regions propagate through the air as longitudinal waves. This mechanical disturbance travels outward from the source, carrying energy away from the vibrating object and into the medium, allowing the sound to be heard by an observer.</p>
+        
+        <p>For sound to travel, a medium (such as air, water, or solid materials) is essential. In the absence of a medium, like in a vacuum, sound waves cannot propagate because there are no particles to transmit the vibrations. The speed and efficiency of sound transmission depend on the medium's properties, such as density and elasticity. For example, sound travels faster in water than in air because water molecules are more closely packed, facilitating quicker transfer of the vibrational energy from one particle to another.</p>
+      
+       <canvas id="soundCanvas" width="600" height="200"></canvas>
+    <script>
+        const canvas = document.getElementById('soundCanvas');
+        const ctx = canvas.getContext('2d');
+
+        const numParticles = 180;
+        const particles = [];
+        const amplitude = 20;
+        const frequency = 0.01;
+        let time = 0;
+
+        function initParticles() {
+            const rows = 10;
+            const cols = 18; // Reduced columns because the first column will be a solid line
+            for (let row = 0; row < rows; row++) {
+                for (let col = 0; col < cols; col++) {
+                    const x = (col / cols) * (canvas.width - 100) + 100;
+                    const y = (row / rows) * canvas.height;
+                    particles.push({ originalX: x, x, y });
+                }
+            }
+        }
+
+        function drawParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particles.length; i++) {
+                const particle = particles[i];
+                const offset = amplitude * Math.sin(2 * Math.PI * (particle.originalX / canvas.width * 4 - time));
+                particle.x = particle.originalX + offset;
+                ctx.beginPath();
+                ctx.arc(particle.x, particle.y, 3, 0, 2 * Math.PI);
+                ctx.fillStyle = 'red';
+                ctx.fill();
+            }
+        }
+
+      function drawDiaphragm() {
+            const diaphragmX = 50 + amplitude * Math.sin(2 * Math.PI * frequency * time);
+            ctx.beginPath();
+            ctx.moveTo(diaphragmX, 0);
+            ctx.lineTo(diaphragmX, canvas.height);
+            ctx.strokeStyle = 'blue';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+        }
+        function drawBoundaryLine() {
+            ctx.beginPath();
+            ctx.moveTo(100, 0);
+            ctx.lineTo(100, canvas.height);
+            ctx.strokeStyle = 'black';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+        }
+
+        function animate() {
+            drawBoundaryLine();
+            drawDiaphragm();
+            drawParticles();
+            time += frequency;
+            requestAnimationFrame(animate);
+        }
+
+        initParticles();
+        animate();
+    </script>
+        
+        <h3>10.2.2 Pressure Changes in a Sound Wave</h3>
+        <p>In a sound wave, pressure changes are directly linked to the displacement of particles in the medium through which the sound travels. As a vibrating source moves forward, it compresses the air in front of it, creating a region of high pressure known as compression. Conversely, when the source moves backward, it pulls the air particles apart, resulting in a region of low pressure called rarefaction. These alternating high and low-pressure regions form the sound wave as it propagates through the medium.</p>
+        
+        <p>The relationship between pressure and displacement in a progressive sound wave can be visualized by examining how particles oscillate around their equilibrium positions. As the wave travels, particles move back and forth in the direction of the wave propagation. During compression, particles are pushed closer together, increasing the pressure. During rarefaction, particles are spread further apart, decreasing the pressure. The displacement of particles from their equilibrium positions causes these pressure variations, and this movement of particles and pressure changes together facilitates the transmission of sound through the medium. Thus, in a longitudinal sound wave, the oscillation of particles results in a traveling wave of alternating high and low-pressure regions as shown in the simulation below.</p>
+        
+        <iframe scrolling="no" title="Sound Wave (Displacement and Pressure)" src="https://www.geogebra.org/material/iframe/id/dfh2jjxy/width/640/height/480/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false" width="640px" height="480px" style="border:0px;"> </iframe>
+        
+        <h3>10.2.3 Frequency and Pitch; Amplitude and Volume</h3>
+        
+        <p>You can use the following sound generator to observe the difference between frequency and pitch. If you are using earphones, ensure that the volume is turned down first, especially when playing high frequency sounds (e.g. 1000 Hz and above.)</p>
+        
+        <p>Use the slider or input box to control the frequency of the generated sound.</p>
+    Frequency: <input type="number" id="frequencyInput" min="1" max="40000" value="440"> Hz
+    <br>
+    <input type="range" id="frequencySlider" min="1" max="4000" value="440">
+    <br>
+    Amplitude: <input type="number" id="amplitudeInput" min="0" max="1" step="0.01" value="0.5"> units
+    <br>
+    <input type="range" id="amplitudeSlider" min="0" max="1" step="0.01" value="0.5">
+    <br>
+    <button id="playButton" class="button">Play</button>
+    <button id="stopButton" class="button">Stop</button>
+    <div id="waveform" style="width:600px;height:400px;"></div>
+
+    <script>
+        const frequencySlider = document.getElementById('frequencySlider');
+        const frequencyInput = document.getElementById('frequencyInput');
+        const amplitudeSlider = document.getElementById('amplitudeSlider');
+        const amplitudeInput = document.getElementById('amplitudeInput');
+        const playButton = document.getElementById('playButton');
+        const stopButton = document.getElementById('stopButton');
+
+        let oscillator;
+        let gainNode;
+        let isPlaying = false;
+
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+
+        function updateWaveform(frequency, amplitude) {
+            const xValues = [];
+            const yValues = [];
+            const sampleRate = 44100;
+            const duration = 0.01; // 10ms for a quick view
+            const numSamples = sampleRate * duration;
+
+            for (let i = 0; i < numSamples; i++) {
+                const t = i / sampleRate;
+                xValues.push(t);
+                yValues.push(amplitude * Math.sin(2 * Math.PI * frequency * t));
+            }
+
+            Plotly.newPlot('waveform', [{
+                x: xValues,
+                y: yValues,
+                mode: 'lines',
+                line: { shape: 'sine' }
+            }], {
+                title: 'Waveform',
+                xaxis: { title: 'Time (s)' },
+                yaxis: { title: 'Amplitude (units)', range: [-1, 1] }
+            });
+        }
+
+        function startSound() {
+            const frequency = parseInt(frequencyInput.value);
+            const amplitude = parseFloat(amplitudeInput.value);
+
+            oscillator = audioContext.createOscillator();
+            gainNode = audioContext.createGain();
+
+            oscillator.type = 'sine';
+            oscillator.frequency.value = frequency;
+
+            gainNode.gain.value = amplitude;
+
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            oscillator.start();
+            isPlaying = true;
+        }
+
+        function stopSound() {
+            if (oscillator) {
+                oscillator.stop();
+                isPlaying = false;
+            }
+        }
+
+        frequencySlider.addEventListener('input', function() {
+            const frequency = parseInt(this.value);
+            frequencyInput.value = frequency;
+            updateWaveform(frequency, parseFloat(amplitudeInput.value));
+            if (isPlaying) {
+                oscillator.frequency.value = frequency;
+            }
+        });
+
+        frequencyInput.addEventListener('input', function() {
+            const frequency = parseInt(this.value);
+            if (frequency >= parseInt(frequencySlider.min) && frequency <= parseInt(frequencySlider.max)) {
+                frequencySlider.value = frequency;
+                updateWaveform(frequency, parseFloat(amplitudeInput.value));
+                if (isPlaying) {
+                    oscillator.frequency.value = frequency;
+                }
+            }
+        });
+
+        amplitudeSlider.addEventListener('input', function() {
+            const amplitude = parseFloat(this.value);
+            amplitudeInput.value = amplitude;
+            updateWaveform(parseInt(frequencyInput.value), amplitude);
+            if (isPlaying) {
+                gainNode.gain.value = amplitude;
+            }
+        });
+
+        amplitudeInput.addEventListener('input', function() {
+            const amplitude = parseFloat(this.value);
+            if (amplitude >= parseFloat(amplitudeSlider.min) && amplitude <= parseFloat(amplitudeSlider.max)) {
+                amplitudeSlider.value = amplitude;
+                updateWaveform(parseInt(frequencyInput.value), amplitude);
+                if (isPlaying) {
+                    gainNode.gain.value = amplitude;
+                }
+            }
+        });
+
+        playButton.addEventListener('click', function() {
+            if (!isPlaying) {
+                startSound();
+                playButton.disabled = true;
+                stopButton.disabled = false;
+            }
+        });
+
+        stopButton.addEventListener('click', function() {
+            if (isPlaying) {
+                stopSound();
+                playButton.disabled = false;
+                stopButton.disabled = true;
+            }
+        });
+
+        updateWaveform(parseInt(frequencyInput.value), parseFloat(amplitudeInput.value));
+    </script>
+        
+        
+    <h3>10.2.4 Reflection of Sound and Echo</h3>
+    <p>When a sound wave hits a surface, it can bounce back or reflect. This reflected sound wave is known as an echo. For an echo to be heard distinctly, the reflecting surface must be sufficiently far away from the source of the sound. Typically, the distance must be at least 17 meters for the human ear to distinguish the echo from the original sound, given that sound travels at approximately 343 meters per second in air at room temperature.</p>
+
+    <h4>Process of Echo Formation:</h4>
+    <ol>
+        <li><strong>Sound Emission:</strong> A sound wave is produced by a source, such as a clap or a shout.</li>
+        <li><strong>Travel of Sound:</strong> The sound wave travels through the air towards a reflecting surface, like a wall, a cliff, or a building.</li>
+        <li><strong>Reflection:</strong> Upon hitting the surface, the sound wave is reflected back towards the source.</li>
+        <li><strong>Reception:</strong> The reflected sound wave reaches the listener, who perceives it as an echo.</li>
+    </ol>
+
+    <h4>Using Echo for Measuring Distances:</h4>
+    <p>This principle of sound reflection can be used to measure distances through a method called <strong>echo ranging</strong> or <strong>sonar</strong> (Sound Navigation and Ranging). The process involves the following steps:</p>
+    <ol>
+        <li><strong>Sound Pulse Emission:</strong> A device emits a short, sharp sound pulse towards a distant object.</li>
+        <li><strong>Travel of Sound Pulse:</strong> The sound pulse travels to the object and reflects back.</li>
+        <li><strong>Detection of Echo:</strong> The time taken for the echo to return is measured.</li>
+        <li><strong>Calculation of Distance:</strong> Using the speed of sound in the medium and the measured time, the distance to the reflecting surface can be calculated.</li>
+    </ol>
+
+   
+    <table width="100%"><tr><td>
+        <p>A sound pulse is emitted towards a wall and the echo is heard 2 seconds later. A sound pulse is emitted towards a wall and the echo is heard 2 seconds later. Speed of sound in air (at room temperature) = 343 m/s. Find the distance of the wall from the source of sound. </p>
+    
+            
+            <button id="btn1" data-div="ans3" onclick="reveal(this)">Reveal Answer</button>
+            <div id="ans3" style="display:none">
+                <p>Total time for the sound to travel to the wall and back = 2 seconds.</p>
+
+                <p>Distance to Wall = $\dfrac{343 \text{ m/s} × 2 \text{s}}{2} = 343 \text{ m}$</p>
+            <p>The division by 2 accounts for the sound traveling to the object and back.</p></div>
+            </td></tr></table>
+    
+
+    <h4>Applications:</h4>
+        <p><strong>Sonar:</strong> Used by submarines and ships to detect underwater objects and measure the depth of the sea.</p>
+        <p><strong>Medical Ultrasonography:</strong> Uses sound waves to create images of the inside of the body.</p>
+ 
+        
+ <h3>10.2.5 Ultrasound</h3>
+    <p>Ultrasound refers to sound waves with frequencies higher than the upper audible limit of human hearing, which is about 20 kHz. Ultrasound has a wide range of applications in various fields due to its ability to penetrate different materials and its non-invasive nature.</p>
+
+    <h3>10.2.5.1 Sonar (Sound Navigation and Ranging)</h3>
+    <p>Sonar is a technique that uses ultrasound for navigation, communication, and detecting objects underwater. It works by emitting ultrasound pulses and listening for the echoes that bounce back from objects.</p>
+        
+    <h4>How Sonar Works:</h4>
+        
+        <a title="Georg Wiora (Dr. Schorsch), CC BY-SA 3.0 &lt;http://creativecommons.org/licenses/by-sa/3.0/&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Sonar_Principle_EN.svg"><img width="512" alt="Sonar Principle EN" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Sonar_Principle_EN.svg/512px-Sonar_Principle_EN.svg.png?20080409115024"></a>
+    <ol>
+        <li><strong>Emission:</strong> A sonar device emits an ultrasound pulse into the water.</li>
+        <li><strong>Propagation:</strong> The pulse travels through the water until it hits an object (such as a submarine, fish, or the sea floor).</li>
+        <li><strong>Reflection:</strong> The pulse reflects off the object and returns to the sonar device as an echo.</li>
+        <li><strong>Detection:</strong> The sonar device detects the echo and measures the time taken for the pulse to return.</li>
+        <li><strong>Calculation:</strong> Using the speed of sound in water, the distance to the object is calculated using the formula: $\text{Distance} = \dfrac{\text{Speed of Sound in Water × Time}}{2} $</li>
+    </ol>
+
+
+    <h4>Applications of Sonar:</h4>
+    <ul.b>
+        <li>Navigation for ships and submarines</li>
+        <li>Detecting underwater hazards and objects</li>
+        <li>Mapping the sea floor</li>
+        <li>Fish finding for commercial and recreational fishing</li>
+    </ul.b>
+
+    <h3>10.2.5.2 Medical Ultrasonography</h3>
+    <p>Medical ultrasonography, also known as ultrasound scanning, uses high-frequency sound waves to create images of the inside of the body. It is widely used for diagnostic and therapeutic purposes, especially for examining soft tissues.</p>
+    <h4>How Medical Ultrasound Works:</h4>
+    <ol>
+        <li><strong>Transducer Emission:</strong> A transducer emits ultrasound waves into the body.</li>
+        <li><strong>Propagation:</strong> The sound waves travel through the body and reflect off tissues, organs, and other structures.</li>
+        <li><strong>Reflection:</strong> The reflected sound waves (echoes) return to the transducer.</li>
+        <li><strong>Detection:</strong> The transducer detects the echoes and sends the data to a computer.</li>
+        <li><strong>Image Formation:</strong> The computer processes the data to create real-time images of the internal structures.</li>
+    </ol>
+
+    <h4>Applications of Medical Ultrasound:</h4>
+        <a title="Nevit Dilmen, CC BY-SA 3.0 &lt;https://creativecommons.org/licenses/by-sa/3.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Ultrasound_Scan_ND_0105143736_1439323.png"><img width="512" alt="Ultrasound Scan ND 0105143736 1439323" src="https://upload.wikimedia.org/wikipedia/commons/6/67/Ultrasound_Scan_ND_0105143736_1439323.png?20110108131649"></a>
+    <ul.b>
+        <li>Monitoring fetal development during pregnancy</li>
+        <li>Diagnosing conditions in organs such as the liver, kidneys, and heart</li>
+        <li>Guiding needle placements for biopsies or injections</li>
+        <li>Examining muscles, tendons, and other soft tissues</li>
+        <li>Detecting gallstones and kidney stones</li>
+    </ul.b>
+
+    <h4>Advantages of Ultrasound</h4>
+    <ul.b>
+        <li>Non-invasive and painless</li>
+        <li>No ionizing radiation (unlike X-rays and CT scans)</li>
+        <li>Real-time imaging capabilities</li>
+        <li>Relatively inexpensive and widely available</li>
+    </ul.b>
+
+    <h4>Limitations of Ultrasound</h4>
+    <ul.b>
+        <li>Limited penetration depth, making it less effective for imaging deep structures</li>
+        <li>Image quality can be affected by the presence of gas or bone</li>
+        <li>Requires skilled operators to obtain and interpret images</li>
+    </ul.b>        
+        
+        
+    </body>
+</html>
+
